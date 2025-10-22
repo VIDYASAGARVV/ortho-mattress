@@ -6,7 +6,6 @@ import {
   FaWhatsapp,
   FaMapMarkerAlt,
 } from "react-icons/fa";
-import logo from "../assets/logos/m-logo.jpg"; // ✅ import path
 
 const Footer = () => {
   return (
@@ -17,11 +16,16 @@ const Footer = () => {
                   <div className="flex items-center justify-center space-x-2 mb-4">
 
         <div className="text-center">
-            <img
+            {/* <img
               src={logo}
               alt="Logo"
               style={{ width: "60px", height: "60px", objectPosition: "cover", borderRadius: "8px" }}
-            />
+            /> */}
+        <h1 className="text-4xl font-extrabold tracking-wide">
+    <span className="text-[#F47C20]">ORTHO</span>
+    <span className="text-[#2A9A9F] ml-2">SLEEPY</span>
+  </h1>
+  <p className="text-lg text-gray-600 mt-2">Orthopedic Mattress</p>
 
             <p className="text-gray-300 flex justify-start">
               Our Promise: <br />

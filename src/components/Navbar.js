@@ -1,7 +1,6 @@
 // src/components/Navbar.jsx
 import { useState } from "react";
 import { Search, User,  ShoppingCart, Menu, X } from "lucide-react";
-import logo from "../assets/logos/m-logo.jpg"; // ✅ import path
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -20,15 +19,21 @@ export default function Navbar() {
       {/* Main Navbar */}
       <div className="flex items-center justify-between px-4 sm:px-6 py-4">
         {/* Logo */}
-        {/* <h1 className="text-3xl font-extrabold">Ortho Mattress</h1> */}
+        {/* <h1 className="text-3xl font-extrabold">Ortho Sleepy</h1> */}
+       <h1 className="text-2xl font-extrabold tracking-wide">
+  <span className="text-[#F47C20]">ORTHO</span>
+  <span className="text-[#2A9A9F] ml-2">SLEEPY</span>
+</h1>
+
+
         {/* <img src={logo} alt="Logo" className="h-[60px] w-auto mb-4" /> */}
-         <div className="flex-shrink-0">
+         {/* <div className="flex-shrink-0">
               <img
                 src={logo}
                 alt="Whitecap Solar"
                 style={{ width: "60px", height: "60px", objectPosition: "cover", borderRadius: "8px" }}
               />
-          </div>
+          </div> */}
 
         {/* Search Bar (hidden on mobile) */}
         <div className="hidden md:flex items-center bg-[#b71c1c] rounded-full px-4 py-2 w-1/2">
