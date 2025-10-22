@@ -20,10 +20,20 @@ export default function Navbar() {
       <div className="flex items-center justify-between px-4 sm:px-6 py-4">
         {/* Logo */}
         {/* <h1 className="text-3xl font-extrabold">Ortho Sleepy</h1> */}
-       <h1 className="text-2xl font-extrabold tracking-wide">
+       {/* <h1 className="text-2xl font-extrabold tracking-wide">
   <span className="text-[#F47C20]">ORTHO</span>
   <span className="text-[#2A9A9F] ml-2">SLEEPY</span>
-</h1>
+    <p className="text-sm text-gray-600 mt-1">Orthopedic Mattress</p>
+
+</h1> */}
+<div className="text-center">
+  <h1 className="text-2xl font-extrabold tracking-wide">
+    <span className="text-[#F47C20]">ORTHO</span>
+    <span className="text-[#2A9A9F] ml-2">SLEEPY</span>
+  </h1>
+  <p className="text-sm text-gray-700 mt-0">Orthopedic Mattress</p>
+  </div>
+
 
 
         {/* <img src={logo} alt="Logo" className="h-[60px] w-auto mb-4" /> */}

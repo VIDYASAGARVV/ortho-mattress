@@ -6,7 +6,7 @@ export default function BannerSlider() {
     () => [
       {
         id: 1,
-        video: "/videos/video.mp4", // 🎥 Your main video
+        video: "/videos/video.mp4", // 🎥 Your video file
         poster: "/images/ortho2.jpg", // 🖼️ Fallback image
       },
     ],
@@ -16,7 +16,7 @@ export default function BannerSlider() {
   const [current, setCurrent] = useState(0);
   const videoRefs = useRef([]);
 
-  // Auto-slide
+  // Auto-slide every 10s
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
@@ -24,7 +24,7 @@ export default function BannerSlider() {
     return () => clearInterval(interval);
   }, [slides.length]);
 
-  // Restart next video
+  // Restart next video on slide change
   useEffect(() => {
     const video = videoRefs.current[current];
     if (video) {
@@ -34,17 +34,21 @@ export default function BannerSlider() {
   }, [current]);
 
   return (
-    <div className="relative w-screen  h-[100vh] overflow-hidden bg-black object-contains">
+    <div
+      className="
+        relative w-screen overflow-hidden bg-black
+        h-[350px] sm:h-[450px] md:h-[550px] lg:h-[650px] xl:h-[750px]
+      "
+    >
       <AnimatePresence mode="wait">
         <motion.div
           key={slides[current].id}
-          initial={{ opacity: 0, scale: 1.03 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 1.02 }}
-          transition={{ duration: 1.2, ease: "easeInOut" }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.2, ease: 'easeInOut' }}
           className="absolute inset-0"
         >
-          {/* 🎥 Full Width Cinematic Video */}
           <video
             ref={(el) => (videoRefs.current[current] = el)}
             src={slides[current].video}
@@ -54,11 +58,11 @@ export default function BannerSlider() {
             loop
             playsInline
             preload="auto"
-            className="absolute top-0 left-0 w-full h-full object-cover"
+            className="
+              absolute top-0 left-0 w-full h-full
+              object-cover sm:object-cover md:object-cover
+            "
           />
-
-          {/* Optional cinematic overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
         </motion.div>
       </AnimatePresence>
     </div>
