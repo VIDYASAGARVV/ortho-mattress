@@ -1,8 +1,7 @@
 // src/components/Navbar.jsx
 import { useState } from "react";
-import { Search, User, Heart, ShoppingCart, Menu, X } from "lucide-react";
+import { Search, User,  ShoppingCart, Menu, X } from "lucide-react";
 import logo from "../assets/logos/m-logo.jpg"; // ✅ import path
-import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
