@@ -15,11 +15,11 @@ const Footer = () => {
         {/* Logo + Description */}
                   <div className="flex items-center justify-center space-x-2 mb-4">
 
-        <div className="text-center">
+        <div className="text-center md:col-span-1 flex flex-col items-center">
             <img
               src= {logo}
               alt="Logo"
-              style={{ width: "170px", height: "80px", objectPosition: "cover", borderRadius: "8px" }}
+              style={{ width: "160px", height: "80px", objectPosition: "cover", borderRadius: "8px" }}
             />
       
 
