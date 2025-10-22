@@ -6,7 +6,7 @@ import {
   FaWhatsapp,
   FaMapMarkerAlt,
 } from "react-icons/fa";
-
+import logo from "../assets/logos/m-logo.jpg";
 const Footer = () => {
   return (
     <footer className="relative bg-red-500 text-white pt-12 pb-6">
@@ -16,16 +16,12 @@ const Footer = () => {
                   <div className="flex items-center justify-center space-x-2 mb-4">
 
         <div className="text-center">
-            {/* <img
-              src={logo}
+            <img
+              src= {logo}
               alt="Logo"
-              style={{ width: "60px", height: "60px", objectPosition: "cover", borderRadius: "8px" }}
-            /> */}
-        <h1 className="text-4xl font-extrabold tracking-wide">
-    <span className="text-[#F47C20]">ORTHO</span>
-    <span className="text-[#2A9A9F] ml-2">SLEEPY</span>
-  </h1>
-  <p className="text-lg text-gray-600 mt-2">Orthopedic Mattress</p>
+              style={{ width: "170px", height: "80px", objectPosition: "cover", borderRadius: "8px" }}
+            />
+      
 
             <p className="text-gray-300 flex justify-start">
               Our Promise: <br />
@@ -159,7 +155,7 @@ const Footer = () => {
 
       {/* Divider */}
       <div className="max-w-7xl mx-auto border-t border-gray-700 mt-8 pt-4 px-4 flex flex-col md:flex-row justify-between items-center text-sm">
-        <p>© All Rights Reserved, Ortho Sleep</p>
+        <p>© All Rights Reserved, Ortho Sleepy</p>
         <p className="text-blue-400">Designed by Webnsoftware</p>
       </div>
 

@@ -1,69 +1,72 @@
-import { useState, useEffect, useMemo, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function BannerSlider() {
-  const slides = useMemo(
-    () => [
-      {
-        id: 1,
-        video: "/videos/video.mp4", // 🎥 Your video file
-        poster: "/images/ortho2.jpg", // 🖼️ Fallback image
-      },
-    ],
-    []
-  );
+  const [showVideo, setShowVideo] = useState(true);
+  const videoRef = useRef(null);
 
-  const [current, setCurrent] = useState(0);
-  const videoRefs = useRef([]);
-
-  // Auto-slide every 10s
+  // ⚡ Auto toggle between videos every 5 seconds (faster)
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % slides.length);
-    }, 10000);
+      setShowVideo((prev) => !prev);
+    }, 5000); // ⏱ faster delay
     return () => clearInterval(interval);
-  }, [slides.length]);
+  }, []);
 
-  // Restart next video on slide change
+  // ▶️ Restart & play video each time it's shown
   useEffect(() => {
-    const video = videoRefs.current[current];
-    if (video) {
-      video.currentTime = 0;
-      video.play().catch(() => {});
+    if (showVideo && videoRef.current) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.play().catch(() => {});
     }
-  }, [current]);
+  }, [showVideo]);
 
   return (
-    <div
-      className="
-        relative w-screen overflow-hidden bg-black
-        h-[350px] sm:h-[450px] md:h-[550px] lg:h-[650px] xl:h-[750px]
-      "
-    >
+    <div className="relative w-full overflow-hidden bg-black">
       <AnimatePresence mode="wait">
-        <motion.div
-          key={slides[current].id}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1.2, ease: 'easeInOut' }}
-          className="absolute inset-0"
-        >
-          <video
-            ref={(el) => (videoRefs.current[current] = el)}
-            src={slides[current].video}
-            poster={slides[current].poster}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            className="
-              absolute top-0 left-0 w-full h-full
-              object-cover sm:object-cover md:object-cover
-            "
-          />
-        </motion.div>
+        {showVideo ? (
+          // 🎥 FIRST VIDEO SLIDE
+          <motion.div
+            key="video1"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }} // smoother fade
+            className="relative w-full h-[280px] sm:h-[350px] md:h-[450px] lg:h-[550px] xl:h-[650px]"
+          >
+            <video
+              ref={videoRef}
+              src="/videos/video.mp4"
+              autoPlay
+              muted
+              playsInline
+              preload="auto"
+              loop={false}
+              className="absolute top-0 left-0 w-full h-full object-cover"
+            />
+          </motion.div>
+        ) : (
+          // 🎥 SECOND VIDEO SLIDE
+          <motion.div
+            key="video2"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            className="relative w-full h-[280px] sm:h-[350px] md:h-[450px] lg:h-[550px] xl:h-[650px]"
+          >
+            <video
+              ref={videoRef}
+              src="/videos/free-del.mp4"
+              autoPlay
+              muted
+              playsInline
+              preload="auto"
+              loop={false}
+              className="absolute top-0 left-0 w-full h-full object-cover"
+            />
+          </motion.div>
+        )}
       </AnimatePresence>
     </div>
   );
