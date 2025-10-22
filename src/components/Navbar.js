@@ -26,7 +26,7 @@ export default function Navbar() {
               <img
                 src={logo}
                 alt="Whitecap Solar"
-                style={{ width: "150px", height: "60px", objectPosition: "cover" }}
+                style={{ width: "60px", height: "60px", objectPosition: "cover", borderRadius: "8px" }}
               />
           </div>
 

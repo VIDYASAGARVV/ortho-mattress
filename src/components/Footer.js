@@ -20,7 +20,7 @@ const Footer = () => {
             <img
               src={logo}
               alt="Logo"
-              className="h-14 lg:w-40 mb-4"
+              style={{ width: "60px", height: "60px", objectPosition: "cover", borderRadius: "8px" }}
             />
 
             <p className="text-gray-300 flex justify-start">
