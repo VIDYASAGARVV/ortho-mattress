@@ -41,7 +41,7 @@ export default function Navbar() {
             alt="ortho sleepy"
             className="h-[40px] w-auto "
             style={{
-              width: "100px",
+              width: "60px",
               height: "60px",
               objectPosition: "cover",
               borderRadius: "8px",
